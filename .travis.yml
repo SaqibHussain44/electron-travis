@@ -1,8 +1,11 @@
-language: node_js
+language: node_js	
 
 node_js:
   - "node"
   - "lts/*"
+os:
+  - linux
+  - osx
 
 before_script:
   - export DISPLAY=:99.0
@@ -10,8 +13,7 @@ before_script:
   - sleep 3
 
 script:
-  - npm test
-  - npm run package:linux
+  - npm run package:$TRAVIS_OS_NAME
 
 branches:
   only:
